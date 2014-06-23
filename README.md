@@ -3,10 +3,10 @@ KeyInjectionDetector
 
 Python module to check for an expected number of keyboards on a system, useful to detect when you're getting [facedanced](http://goodfet.sourceforge.net/hardware/facedancer11/)...
 
-Example usage
--------------
+Usage
+-----
 
-If you expect ot have 2 keyboards on your system and you indeed have 2 keyboards connected:
+If you expect to have 2 keyboards on your system and you indeed have 2 keyboards connected:
 
 ```
   > python check_num_keyboards.py 2
@@ -30,5 +30,12 @@ If you expect ot have 2 keyboards on your system and you indeed have 2 keyboards
   Found 2 keyboard(s) on this system
 ```
 
-But if you don't have the expected number of keyboards on your system, an alert popup will be shown:
+But if you don't have the expected number of keyboards on your system, an alert [popup](https://github.com/attwad/keyid/blob/master/error_num_keyboards.png) will be shown.
 
+I suggest setting up a scheduled task on windows using something like:
+
+`schtasks /create /sc minute /mo 1 /tn "Check num keyboards" /tr C:\keyid\run.bat`
+
+Linux
+-----
+To come, but if you're using linux there are much easier ways to check for this kind of things, no need for python nor ctypes, just plain old
