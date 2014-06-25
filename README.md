@@ -38,4 +38,6 @@ I suggest setting up a scheduled task on windows using something like:
 
 Linux
 -----
-To come, but if you're using linux there are much easier ways to check for this kind of things, no need for python nor ctypes, just plain old
+To come, but if you're using linux there are much easier ways to check for this kind of things, no need for python nor ctypes, just plain old bash foo will do up to some point:
+
+`> test 5 -eq $(xinput list | grep "slave  keyboard" | wc -l) && echo ok || notify-send "SUSPICIOUS NUMBER OF KEYBOARDS" "$(xinput list | grep ' keyboard (' | cut -f1)" -u CRITICAL`
